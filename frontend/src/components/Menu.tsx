@@ -21,7 +21,7 @@ const Menu = () => {
     <div className="mt-6 text-sm">
       {menuItems.map((menu) => (
         <div className="flex flex-col gap-3" key={menu.title}>
-          <span className="hidden lg:block text-gray-400 font-medium tracking-wider text-xs my-4 px-4">
+          <span className="hidden lg:block text-gray-400 font-medium tracking-wider text-xs my-4 px-4 dark:text-slate-500">
             {menu.title}
           </span>
           {menu.items.map(
@@ -30,9 +30,9 @@ const Menu = () => {
                 <Link
                   href={item.href}
                   key={item.label}
-                  className="flex items-center justify-center lg:justify-start gap-4 text-gray-600 py-3 md:px-4 rounded-xl transition-all duration-300 hover:bg-gray-100/80 hover:shadow-sm hover:scale-[1.02] active:scale-[0.98] group relative overflow-hidden"
+                  className="flex items-center justify-center lg:justify-start gap-4 text-gray-600 py-3 md:px-4 rounded-xl transition-all duration-300 hover:bg-gray-100/80 hover:shadow-sm hover:scale-[1.02] active:scale-[0.98] group relative overflow-hidden dark:text-slate-200 dark:hover:bg-slate-800"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:from-slate-700/30" />
                   <Image
                     src={item.icon}
                     alt=""

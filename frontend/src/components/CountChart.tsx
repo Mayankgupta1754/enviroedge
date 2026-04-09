@@ -51,13 +51,13 @@ const CountChart: React.FC<CountChartProps> = ({ gasData }) => {
   , [hoveredGas, initialGasData]);
 
   return (
-    <div className="bg-white hover:bg-gray-100 rounded-xl w-full h-[400px] p-3 transition-all duration-200 ease-in-out overflow-hidden">
+    <div className="bg-white hover:bg-gray-100 rounded-xl w-full h-[280px] sm:h-[400px] p-2 sm:p-3 transition-all duration-200 ease-in-out overflow-hidden dark:bg-slate-900 dark:hover:bg-slate-800">
       <div className="flex justify-between items-center mb-2">
-        <h1 className="text-lg font-semibold">Gas Concentrations</h1>
-        <div className="text-sm opacity-80">Real-time</div>
+        <h1 className="text-sm sm:text-lg font-semibold dark:text-slate-100">Gas Concentrations</h1>
+        <div className="text-[11px] sm:text-sm opacity-80 dark:text-slate-300">Real-time</div>
       </div>
 
-      <div className="relative w-full h-[55%]">
+      <div className="relative w-full h-[48%] sm:h-[55%]">
         <ResponsiveContainer width="100%" height="100%">
           <RadialBarChart
             cx="50%"
@@ -81,7 +81,7 @@ const CountChart: React.FC<CountChartProps> = ({ gasData }) => {
           </RadialBarChart>
         </ResponsiveContainer>
 
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[25%] aspect-square rounded-full flex items-center justify-center bg-white shadow-sm">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[30%] sm:w-[25%] aspect-square rounded-full flex items-center justify-center bg-white shadow-sm dark:bg-slate-800">
           <div className="text-center w-full p-1">
             {hoveredGas ? (
               <>
@@ -89,24 +89,24 @@ const CountChart: React.FC<CountChartProps> = ({ gasData }) => {
                      style={{ color: initialGasData.find(d => d.name === hoveredGas)?.fill }}>
                   {hoveredGas}
                 </div>
-                <div className="text-lg font-bold">
+                <div className="text-lg font-bold dark:text-slate-100">
                   {initialGasData.find(d => d.name === hoveredGas)?.count.toFixed(3) ?? "0.000"}
                 </div>
               </>
             ) : (
-              <div className="text-base font-bold text-gray-600">Gas Level</div>
+              <div className="text-base font-bold text-gray-600 dark:text-slate-300">Gas Level</div>
             )}
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mt-2 overflow-hidden">
+      <div className="hidden sm:grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1.5 sm:gap-2 mt-2 overflow-hidden">
         {initialGasData.slice(1).map(item => (
           <div
             key={item.name}
             onMouseEnter={() => handleGasMouseEnter(item.name)}
             onMouseLeave={handleGasMouseLeave}
-            className={`flex items-center gap-2 p-1.5 rounded-lg transition-all duration-200 ease-in-out hover:bg-gray-100 ${
+            className={`flex items-center gap-2 p-1.5 rounded-lg transition-all duration-200 ease-in-out hover:bg-gray-100 dark:hover:bg-slate-800 ${
               hoveredGas === item.name ? "scale-[1.02] shadow-sm" : ""
             }`}
             style={{ opacity: hoveredGas ? (hoveredGas === item.name ? 1 : 0.5) : 1 }}
@@ -119,8 +119,8 @@ const CountChart: React.FC<CountChartProps> = ({ gasData }) => {
               }}
             />
             <div className="flex flex-col min-w-0 flex-1">
-              <span className="text-xs font-medium text-gray-700 truncate">{item.name}</span>
-              <span className="text-xs text-gray-600">{item.count.toFixed(3)}</span>
+              <span className="text-xs font-medium text-gray-700 truncate dark:text-slate-200">{item.name}</span>
+              <span className="text-xs text-gray-600 dark:text-slate-400">{item.count.toFixed(3)}</span>
             </div>
           </div>
         ))}

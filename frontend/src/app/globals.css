@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  color: #111827;
+}
+
+.dark body {
+  background: linear-gradient(180deg, #0b1020 0%, #111827 100%);
+  color: #e5e7eb;
+}
+
 .react-calendar {
   width: 100% !important;
   border: none !important;

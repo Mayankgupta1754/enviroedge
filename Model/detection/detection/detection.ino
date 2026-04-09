@@ -34,7 +34,7 @@ void loop() {
 
       float p= (exp(y))/(1+(exp(y)));
 
-      if(p>=0.40000000000){
+      if(p>=0.20000000000){
         digitalWrite(3,HIGH);
         digitalWrite(2,HIGH);
 
