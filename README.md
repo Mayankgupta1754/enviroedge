@@ -212,10 +212,3 @@ Data refreshes every **1 second**; last valid readings are kept if the serial st
 | Dashboard shows N/A | Ensure backend is running and Arduino is connected |
 | Model not retraining | Need at least `EDGE_MIN_TRAIN_SAMPLES` (default 60) labeled samples |
 
-## Related Names
-
-This project has also been developed under **RespirAI** / suffocation-detector naming in earlier commits. The primary product name in the UI is **EnviroEdge AI**.
-
-## License
-
-No license file is included yet. Add one before public distribution if needed.
