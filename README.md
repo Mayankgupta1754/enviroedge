@@ -1,6 +1,7 @@
 # EnviroEdge AI
 
-**EnviroEdge AI** is an end-to-end IoT platform for real-time environmental monitoring and suffocation-risk detection. Arduino sensors stream air-quality readings over USB serial to a Node.js backend, which estimates gas concentrations and risk probability using logistic regression—with optional online retraining—and displays live metrics on a Next.js dashboard.
+
+**EnviroEdge AI** is an end to end IoT platform for real time environmental monitoring and suffocation risk detection. Arduino sensors stream air quality readings over USB serial to a Node.js backend, which estimates gas concentrations and risk probability using logistic regression—with optional online retraining—and displays live metrics on a Next.js dashboard.
 
 ## Features
 
