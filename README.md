@@ -63,7 +63,7 @@ Enviroedge/
 | **MQ-5** | LPG, methane (analog A0, digital D5) |
 | **MQ-135** | CO, CO₂, NH₃, alcohol (analog A1, digital D6) |
 | **DHT11** | Temperature & humidity (pin 4) |
-<img width="1905" height="1064" alt="Dashboard Preview" src="Assets/im4.png">
+<img width="500" height="500" alt="Dashboard Preview" src="Assets/im4.png">
 ### Firmware
 
 | Sketch | Path | Description |
@@ -185,4 +185,4 @@ The **EnviroEdge AI Console** (`frontend/src/app/(dashboard)/admin/page.tsx`) sh
 
 Data refreshes every **1 second**; last valid readings are kept if the serial stream drops.
 
-<img width="1905" height="1064" alt="Dashboard Preview" src="Assets/im1.png">
+<img width="500" height="500" alt="Dashboard Preview" src="Assets/im1.png">
