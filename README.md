@@ -1,9 +1,9 @@
-<img width="480" height="410" alt="image" src="https://github.com/user-attachments/assets/08c1ce58-910d-4dd0-b4d7-1cdd3f02736d" /># EnviroEdge AI
+# EnviroEdge AI
 
 
 **EnviroEdge AI** is an end to end IoT platform for real time environmental monitoring and suffocation risk detection. Arduino sensors stream air quality readings over USB serial to a Node.js backend, which estimates gas concentrations and risk probability using logistic regression with optional online retraining and displays live metrics on a Next.js dashboard.
 
-<img width="1905" height="1064" alt="Dashboard Preview" src="Assets/im3.png">
+<img width="500" height="500" alt="Dashboard Preview" src="Assets/im3.png">
 ## Features
 
 - **Multi sensor ingestion** — MQ-5, MQ-135, and DHT11 (temperature/humidity) via Arduino serial (9600 baud)
@@ -25,7 +25,7 @@
         │                                         │
         └── GPIO (LED / buzzer)                   └── edge-model-state.json
 ```
-<img width="1905" height="1064" alt="Dashboard Preview" src="Assets/im6.png">
+<img width="500" height="500" alt="Dashboard Preview" src="Assets/im6.png">
 ## Tech Stack
 
 | Layer | Technologies |
