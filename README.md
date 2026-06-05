@@ -1,18 +1,19 @@
-# EnviroEdge AI
+<img width="480" height="410" alt="image" src="https://github.com/user-attachments/assets/08c1ce58-910d-4dd0-b4d7-1cdd3f02736d" /># EnviroEdge AI
 
 
-**EnviroEdge AI** is an end to end IoT platform for real time environmental monitoring and suffocation risk detection. Arduino sensors stream air quality readings over USB serial to a Node.js backend, which estimates gas concentrations and risk probability using logistic regression—with optional online retraining—and displays live metrics on a Next.js dashboard.
+**EnviroEdge AI** is an end to end IoT platform for real time environmental monitoring and suffocation risk detection. Arduino sensors stream air quality readings over USB serial to a Node.js backend, which estimates gas concentrations and risk probability using logistic regression with optional online retraining and displays live metrics on a Next.js dashboard.
 
+<img width="1905" height="1064" alt="Dashboard Preview" src="Assets/im3.png">
 ## Features
 
-- **Multi-sensor ingestion** — MQ-5, MQ-135, and DHT11 (temperature/humidity) via Arduino serial (9600 baud)
-- **Risk scoring** — Logistic regression outputs a suffocation / hazardous-condition probability
+- **Multi sensor ingestion** — MQ-5, MQ-135, and DHT11 (temperature/humidity) via Arduino serial (9600 baud)
+- **Risk scoring** — Logistic regression outputs a suffocation / hazardous condition probability
 - **Gas concentration estimates** — RS-ratio formulas for LPG, CO, methane, hydrogen, NH₃, CO₂, and alcohol
-- **Edge inference** — Deploy trained weights on Arduino for on-device alerts (GPIO when risk ≥ 20%)
+- **Edge inference** — Deploy trained weights on Arduino for on device alerts (GPIO when risk ≥ 20%)
 - **Online learning** — Backend buffers labeled samples and retrains periodically when validation loss improves
 - **Live dashboard** — 1-second refresh, trend charts, model version / sample count / validation loss
 - **Hardware alerts** — LED outputs and optional buzzer firmware
-
+<img width="1905" height="1064" alt="Dashboard Preview" src="Assets/im5.png">
 ## Architecture
 
 ```
@@ -24,7 +25,7 @@
         │                                         │
         └── GPIO (LED / buzzer)                   └── edge-model-state.json
 ```
-
+<img width="1905" height="1064" alt="Dashboard Preview" src="Assets/im6.png">
 ## Tech Stack
 
 | Layer | Technologies |
@@ -62,7 +63,7 @@ Enviroedge/
 | **MQ-5** | LPG, methane (analog A0, digital D5) |
 | **MQ-135** | CO, CO₂, NH₃, alcohol (analog A1, digital D6) |
 | **DHT11** | Temperature & humidity (pin 4) |
-
+<img width="1905" height="1064" alt="Dashboard Preview" src="Assets/im4.png">
 ### Firmware
 
 | Sketch | Path | Description |
@@ -100,20 +101,6 @@ cd enviroedge
 cd backend
 npm install
 ```
-
-Create `backend/.env` (optional):
-
-```env
-PORT=4000
-JWT_SECRET=your-secret-here
-
-# Online learning (optional overrides)
-EDGE_SAMPLE_BUFFER_SIZE=2000
-EDGE_RETRAIN_INTERVAL_MS=600000
-EDGE_MIN_TRAIN_SAMPLES=60
-SNAPSHOT_TTL_MS=900
-```
-
 **Set your serial port** in `backend/controllers/probController.js`:
 
 ```js
@@ -133,12 +120,6 @@ API base: `http://localhost:4000`
 ```bash
 cd frontend
 npm install
-```
-
-Optional: create `frontend/.env.local`:
-
-```env
-BACKEND_BASE_URL=http://localhost:4000
 ```
 
 Run the dashboard:
@@ -167,7 +148,7 @@ Open [http://localhost:3000](http://localhost:3000) — redirects to the admin o
 | `POST` | `/api/user/login` | User login (JWT; requires MongoDB if enabled) |
 | `POST` | `/api/user/register` | User registration |
 
-The Next.js app proxies snapshot and model-status via:
+The Next.js app proxies snapshot and model status via:
 
 - `GET /api/probability/snapshot`
 - `GET /api/probability/model-status`
@@ -191,7 +172,7 @@ The Next.js app proxies snapshot and model-status via:
 
 ### Gas concentrations
 
-Analog readings are converted using per-gas constants (A, B) and an RS-ratio formula in `probController.js`—separate from the ML risk score.
+Analog readings are converted using per gas constants (A, B) and an RS-ratio formula in `probController.js`—separate from the ML risk score.
 
 ## Dashboard
 
@@ -204,12 +185,4 @@ The **EnviroEdge AI Console** (`frontend/src/app/(dashboard)/admin/page.tsx`) sh
 
 Data refreshes every **1 second**; last valid readings are kept if the serial stream drops.
 
-## Troubleshooting
-
-| Issue | Suggestion |
-|-------|------------|
-| `Failed to open serial port` | Check `PORT_NAME`, close Arduino Serial Monitor, verify USB driver |
-| `Timeout: No data received` | Confirm correct firmware is uploaded and baud rate is 9600 |
-| Dashboard shows N/A | Ensure backend is running and Arduino is connected |
-| Model not retraining | Need at least `EDGE_MIN_TRAIN_SAMPLES` (default 60) labeled samples |
-
+<img width="1905" height="1064" alt="Dashboard Preview" src="Assets/im1.png">
