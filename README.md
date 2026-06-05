@@ -13,7 +13,7 @@
 - **Online learning** — Backend buffers labeled samples and retrains periodically when validation loss improves
 - **Live dashboard** — 1-second refresh, trend charts, model version / sample count / validation loss
 - **Hardware alerts** — LED outputs and optional buzzer firmware
-<img width="1905" height="1064" alt="Dashboard Preview" src="Assets/im5.png">
+<img width="500" height="500" alt="Dashboard Preview" src="Assets/im5.png">
 ## Architecture
 
 ```
